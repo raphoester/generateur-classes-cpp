@@ -78,5 +78,5 @@ void Fenetre_Principale::creerClasse(){
         classe.commentaires = false;
     }
 
-    Fenetre_Resultat *rs = new Fenetre_Resultat(classe.Generer());
+    Fenetre_Resultat *rs = new Fenetre_Resultat(classe.GenererH(), classe.GenererCPP());
 }

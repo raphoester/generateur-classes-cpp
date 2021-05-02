@@ -7,7 +7,8 @@ class Nclasse
 {
 public:
     Nclasse();
-    QString Generer();
+    QString GenererH();
+    QString GenererCPP();
 
     QString nom;
     QString mere;

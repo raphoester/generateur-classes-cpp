@@ -6,14 +6,16 @@
 #include <QDialog>
 #include <QTextEdit>
 #include <QPushButton>
+#include <QTabWidget>
 
 class Fenetre_Resultat : public QDialog
 {
 public:
-    Fenetre_Resultat(QString code);
+    Fenetre_Resultat(QString codeH, QString codeCPP);
 private:
-    QPushButton* btn_valider;
-    QTextEdit* resultat;
+    QTabWidget* onglets;
+    QTextEdit* resultatH;
+    QTextEdit* resultatCPP;
     QVBoxLayout* modele;
 };
 

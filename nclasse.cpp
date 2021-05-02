@@ -15,7 +15,7 @@ Nclasse::Nclasse()
     */
 }
 
-QString Nclasse::Generer(){
+QString Nclasse::GenererH(){
     QString texte = "";
     if (this->commentaires == true){
         texte += "/*\n";
@@ -55,6 +55,40 @@ QString Nclasse::Generer(){
     if(this->protection == true){
         texte += "\n#endif HEADER_"+ this->nom.toUpper() + "\n";
     }
+
+    return texte;
+}
+
+QString Nclasse::GenererCPP(){
+    QString texte = "";
+    if (this->commentaires == true){
+        texte += "/*\n";
+           if(!this->auteur.isEmpty()){
+               texte += "Auteur : " + this->auteur + "\n";
+           }
+           if(!this->creation->toString().isEmpty()){
+               texte += "Date de création : " + this->creation->toString() + "\n";
+           }
+           if(!this->role.isEmpty()){
+               texte += "Rôle : \n" + this->role + "\n";
+           }
+
+        texte += "*/\n\n";
+    }
+
+    texte += "#include " + this->nom + ".h\n\n";
+
+    if(this->constructeur==true){
+        texte += this->nom + "::" + this->nom + "()\n{\n\n}\n";
+    }
+
+    if(this->destructeur==true){
+        texte += this->nom + "::~" + this->nom + "()\n{\n\n}\n";
+    }
+
+
+
+
 
     return texte;
 }

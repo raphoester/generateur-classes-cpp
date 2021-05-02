@@ -1,22 +1,26 @@
 #include "fenetre_resultat.h"
 
-Fenetre_Resultat::Fenetre_Resultat(QString code)
+Fenetre_Resultat::Fenetre_Resultat(QString codeH, QString codeCPP)
 {
     QDialog *fenetre_resultat = new QDialog;
     QVBoxLayout* modele = new QVBoxLayout;
+    QTabWidget* onglets = new QTabWidget();
 
-    resultat = new QTextEdit();
-    resultat->setPlainText(code);
-    resultat->setFont(QFont("Courier"));
-    resultat->setReadOnly(true);
+    resultatH = new QTextEdit();
+    resultatH->setPlainText(codeH);
+    resultatH->setFont(QFont("Courier"));
+    resultatH->setReadOnly(true);
 
-    btn_valider = new QPushButton("Valider");
+    resultatCPP = new QTextEdit();
+    resultatCPP->setPlainText(codeCPP);
+    resultatCPP->setFont(QFont("Courier"));
+    resultatCPP->setReadOnly(true);
 
-    modele->addWidget(resultat);
-    modele->addWidget(btn_valider);
+    onglets->addTab(resultatH, "classe.h");
+    onglets->addTab(resultatCPP, "classe.cpp");
+    modele->addWidget(onglets);
+
 
     fenetre_resultat->setLayout(modele);
     fenetre_resultat->exec();
-
-    QWidget::connect(btn_valider, SIGNAL(clicked()), this, SLOT(accept()));
 }
