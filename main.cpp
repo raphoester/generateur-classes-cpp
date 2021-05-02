@@ -1,7 +1,7 @@
 #include <QApplication>
 #include "fenetre_principale.h"
 
-int main(int argc, char* argv[]){
+void main(int argc, char* argv[]){
 
     QApplication app(argc, argv);
     Fenetre_Principale mw;

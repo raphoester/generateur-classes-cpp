@@ -87,8 +87,5 @@ QString Nclasse::GenererCPP(){
     }
 
 
-
-
-
     return texte;
 }
